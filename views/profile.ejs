@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <link rel="stylesheet" href="/css/user.css">
+    </head>
+
+    <body>
+        <!-- <h1><%= title %>/Profile</h1> -->
+
+        <h1>Codial | <%= title %> | Profile</h1>
+
+        <div id="info">
+
+            <h3>User Name : <%= user.name %></h3>
+
+            <h3>Email : <%= user.email %></h3>
+
+        </div>
+
+        <div id="buttons">
+
+            <a href="/user/sign-out">
+                <button class="btn">Sign Out</button>
+            </a>
+
+        </div>
+
+    </body>
+</html>
