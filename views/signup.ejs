@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/css/sign.css">
+    </head>
+
+    <body>
+
+        <h1>Codial | Sign Up</h1>
+
+        <form action="/user/create" method="POST">
+
+            <div id="info">
+
+                <div>
+                    <span class="label">Name</span>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div>
+                    <span class="label">Email</span>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div>
+                    <span class="label">Password</span>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div>
+                    <span class="label">ConfirmPassword</span>
+                    <input type="password" id="confirm_password" name="confrim_password" required>
+                </div>
+
+            </div>
+
+            <div id="btn">
+                <button>
+                    Sign Up
+                </button>
+            </div>
+        </form>
+    </body>
+</html>
