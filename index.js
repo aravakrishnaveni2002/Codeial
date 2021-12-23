@@ -1,19 +1,22 @@
 const express = require('express');
-const db = require('./config/mongoose');
 const cookieParser = require('cookie-parser');
-const { urlencoded } = require('express');
-
 const app = express();
-
 const port = 8000;
+const db = require('./config/mongoose');
 
 
-app.use(urlencoded());
+//used for seesion cookie
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-stratagy');
+const MongoStore = require('connect-mongo')(session);
+
+
+
+app.use(express.urlencoded());
 
 app.use(cookieParser());
 
-// use express router 
-app.use('/',require('./routes/index'));
 
 
 
@@ -21,6 +24,43 @@ app.use(express.static('assets'));
 
 app.set('view engine','ejs');
 app.set('views','./views');
+
+
+// mongo store is used to store the session cookie int the db
+app.use(session({
+    name: 'codeial',
+    //ToDo change the secret before deployment in production mode
+    secret: 'any random',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        //should be in milli seconds
+        maxAge: (10 * 60 * 1000)
+    },
+    store: new MongoStore(
+        {
+    
+            mongooseConnection: db,
+            autoRemove: 'disabled'
+    
+        },
+
+        function(err){
+            console.log(err || 'connect-mongodb set up ok');
+        }
+    )
+
+}));
+
+app.use(passport.initialize());
+
+app.use(passport.session());
+
+app.use(passport.setAuthenticatedUser);
+
+// use express router 
+app.use('/',require('./routes/index'));
+
 
 
 

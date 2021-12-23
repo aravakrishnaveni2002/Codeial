@@ -1,7 +1,7 @@
 
 const User = require('../models/user');
 
-module.exports.user = function(request,response){
+module.exports.profile = function(request,response){
 
     // return response.send('<h1>User Profile</h1>');
 
@@ -10,7 +10,7 @@ module.exports.user = function(request,response){
 
     //changing a cookie
     // response.cookie('user_id',24);
-    return response.render('user',{
+    return response.render('profile',{
         title: 'User'
     })
 }
@@ -25,6 +25,11 @@ module.exports.signin = function(request,response){
     return response.render('signin',{
         title: "Codeial | Sing In"
     });   
+}
+
+module.exports.signout = function(request,response){
+    request.logout();
+    return response.redirect('/');
 }
 
 module.exports.create = function(request,response){
@@ -58,6 +63,7 @@ module.exports.create = function(request,response){
 }
 
 module.exports.createSession = function(request,response){
-
+    
+    return  response.redirect('/');
 
 }
