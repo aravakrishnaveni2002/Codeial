@@ -1,3 +1,13 @@
+
+
+body{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn{
 
     width: 150px;
@@ -7,12 +17,4 @@
     border-radius: 2rem;
     border: none;
     background-color: slategrey;
-}
-
-body{
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
