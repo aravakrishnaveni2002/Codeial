@@ -1,62 +1,38 @@
-
-
-#form{
-    width: 100%;
-    height: 55%;
-    display: flex;
-    justify-content: center;
-}
-
-form{
+#main-body #form {
+  width: 100%;
+  height: 55%;
+  display: flex;
+  justify-content: center; }
+  #main-body #form form {
     width: 60%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    /* border: 2px solid black; */
-    
-}
-
-form #info{
-
-    height: 50%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    /* border: 2px solid blue; */
-}
-
-#info div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-input{
-
-    width: 200px;
-}
-
-#btn{
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* border: 2px solid blue; */
-}
-
-
-.label{
-    font-size: 20px;
-    font-family: sans-serif;
-}
-
-button{
-    width: 100px;
-    height: 40px;
-    font-size: 18px;
-    background-color: skyblue;
-    border: none;
-}
+    align-items: center; }
+    #main-body #form form #info {
+      height: 50%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly; }
+      #main-body #form form #info div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; }
+        #main-body #form form #info div input {
+          width: 200px; }
+        #main-body #form form #info div .label {
+          font-size: 20px;
+          font-family: sans-serif; }
+    #main-body #form form #btn {
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      #main-body #form form #btn button {
+        width: 100px;
+        height: 40px;
+        font-size: 18px;
+        background-color: skyblue;
+        border: none; }
