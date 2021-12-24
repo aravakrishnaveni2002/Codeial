@@ -1,0 +1,28 @@
+<header>
+   
+
+    <div id="logo">
+        Codial
+    </div>
+
+    <div id="nav-header">
+        <% if (locals.user) { %>
+            <a class="links-header" href="/user/profile">
+                <%= user.name %>
+            </a>
+
+            <a class="links-header" href="/user/sign-out">
+                Sign out
+            </a>
+        <% } else { %>    
+            <a class="links-header" href="/user/sign-up">
+                Sign Up
+            </a>
+
+            <a class="links-header" href="/user/sign-in">
+                Sign In
+            </a>
+        <% } %>
+    </div>
+
+</header>

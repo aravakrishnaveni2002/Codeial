@@ -1,58 +1,29 @@
-<html>
-    <head>
+<!-- <html> -->
+    <!-- <head>
         <title>
             <%= title %>
         </title>
         <link rel="stylesheet" href="/css/user.css">
-    </head>
+    </head> -->
 
-    <body>
+    <!-- <body> -->
         <!-- <h1><%= title %>/Profile</h1> -->
-        <div>
-            <div id="header">
+        
+        <main id="main-body"> 
 
-                <% if (locals.user) { %>
-                    <a class="links" href="/user/profile">
-                        <%= user.name %>
-                    </a>
+            <h1 id="title">Codial | <%= title %> | Profile</h1>
 
-                    <a class="links" href="/user/sign-out">
-                        Sign out
-                    </a>
-                <% } else { %>    
-                    <a class="links" href="/user/sign-up">
-                        Sign Up
-                    </a>
+            <div id="info">
 
-                    <a class="links" href="/user/sign-in">
-                        Sign In
-                    </a>
-                <% } %>
+                <h3>User Name : <%= user.name %></h3>
+
+                <h3>Email : <%= user.email %></h3>
 
             </div>
-        </div>
 
-        <h1>Codial | <%= title %> | Profile</h1>
-
-        <!-- <div id="buttons">
-
-        <a href="/user/sign-up">
-            <button class="btn">Sign Up</button>
-        </a>
-
-        <a href="/user/sign-in">
-            <button class="btn">Sign In</button>
-        </a> -->
-
-        <div id="info">
-
-            <h3>User Name : <%= user.name %></h3>
-
-            <h3>Email : <%= user.email %></h3>
-
-        </div>
+        </main>
 
     </div>
 
-    </body>
-</html>
+    <!-- </body> -->
+<!-- </html> -->
