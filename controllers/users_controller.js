@@ -1,6 +1,7 @@
 
 const User = require('../models/user');
 
+
 module.exports.profile = function(request,response){
 
     // return response.send('<h1>User Profile</h1>');
@@ -67,3 +68,4 @@ module.exports.createSession = function(request,response){
     return  response.redirect('/');
 
 }
+

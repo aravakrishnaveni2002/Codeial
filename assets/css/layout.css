@@ -23,6 +23,27 @@ header {
   width: 100%; }
   #main-body #title {
     text-align: center; }
+  #main-body #posts {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 25%; }
+    #main-body #posts #heading {
+      font-size: 30px; }
+    #main-body #posts #post-form {
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly; }
+      #main-body #posts #post-form #post-content {
+        width: 70%; }
+      #main-body #posts #post-form button {
+        width: 100px;
+        height: 40px;
+        font-size: 18px;
+        background-color: skyblue;
+        border: none; }
 
 footer {
   width: 100%;

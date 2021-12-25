@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center; }
   #main-body #form form {
-    width: 60%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -36,3 +35,23 @@
         font-size: 18px;
         background-color: skyblue;
         border: none; }
+
+@media screen and (max-width: 1500px) {
+  form {
+    width: 30%; } }
+
+@media screen and (max-width: 1300px) {
+  form {
+    width: 40%; } }
+
+@media screen and (max-width: 1000px) {
+  form {
+    width: 45%; } }
+
+@media screen and (max-width: 800px) {
+  form {
+    width: 60%; } }
+
+@media screen and (max-width: 600px) {
+  form {
+    width: 70%; } }

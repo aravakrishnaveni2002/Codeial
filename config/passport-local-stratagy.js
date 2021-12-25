@@ -56,7 +56,7 @@ passport.checkAuthentication = function(request,response,next){
     }
 
     //if uesr is not signed in
-    return response.redirect('/user/sign-in');
+    return response.redirect('/users/sign-in');
 } 
 
 passport.setAuthenticatedUser = function(request,response,next){
@@ -76,7 +76,7 @@ passport.checkUserNotSignedIn = function(request,response,next){
         
     }
 
-    return response.redirect('/user/profile');
+    return response.redirect('/users/profile');
 }
 
 module.exports = passport;

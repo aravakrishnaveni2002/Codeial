@@ -7,19 +7,19 @@
 
     <div id="nav-header">
         <% if (locals.user) { %>
-            <a class="links-header" href="/user/profile">
+            <a class="links-header" href="/users/profile">
                 <%= user.name %>
             </a>
 
-            <a class="links-header" href="/user/sign-out">
+            <a class="links-header" href="/users/sign-out">
                 Sign out
             </a>
         <% } else { %>    
-            <a class="links-header" href="/user/sign-up">
+            <a class="links-header" href="/users/sign-up">
                 Sign Up
             </a>
 
-            <a class="links-header" href="/user/sign-in">
+            <a class="links-header" href="/users/sign-in">
                 Sign In
             </a>
         <% } %>

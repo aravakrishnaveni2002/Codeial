@@ -1,9 +1,14 @@
 
-        <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/layout.css">
 
-        <!-- <main id="main-body"> -->
-
-            <h1 id="title">Codial | <%= title %></h1>
-
-        <!-- </main> -->
+    <h1 id="title">Codial | <%= title %></h1>
         
+    <section id="posts">
+        <div id="heading">Posts</div>
+        <form action="/posts/create" method="POST" id="post-form">
+            <textarea name="content" id="post-content" cols="30" rows="3" placeholder="Type Here..."></textarea>
+            <button id="btn">
+                Post
+            </button>
+        </form>
+    </section>
