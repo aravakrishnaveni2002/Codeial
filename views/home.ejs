@@ -11,4 +11,34 @@
                 Post
             </button>
         </form>
+
+        <div id="users-posts">
+
+            <% for(let i=0 ;i<posts.length;i++) {%>
+
+                <div class="each-post">
+                    <div class="info">
+                        <i class="fas fa-user"></i>
+                        
+                        <div class="post-info">
+                            <span id="posted-by"><%= posts[i].user.name %></span>
+                            <span id="posted-at">Posted on <%= posts[i].createdAt.toString().substring(0,15) %></span>
+                            <!-- <%= posts[i].user.name%> -->
+                        </div>
+
+                        <!-- <div class="posted-at">
+
+                            Posted on <%= posts[i].createdAt.toString().substring(0,15) %>
+                        </div> -->
+                    </div>
+                    <div class="content">
+                        <p><%= posts[i].content %></p>
+                    </div>
+                </div>
+
+            <% } %>
+           
+        </div>
     </section>
+
+    <script src="https://kit.fontawesome.com/071baab2d8.js" crossorigin="anonymous"></script>

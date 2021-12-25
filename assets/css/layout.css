@@ -27,23 +27,54 @@ header {
     margin-left: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 25%; }
+    height: 85%;
+    overflow: scroll; }
     #main-body #posts #heading {
       font-size: 30px; }
     #main-body #posts #post-form {
-      height: 80%;
       display: flex;
-      flex-direction: column;
-      justify-content: space-evenly; }
+      flex-direction: column; }
       #main-body #posts #post-form #post-content {
-        width: 70%; }
+        width: 70%;
+        margin-top: 20px;
+        margin-bottom: 20px; }
       #main-body #posts #post-form button {
         width: 100px;
         height: 40px;
         font-size: 18px;
         background-color: skyblue;
         border: none; }
+    #main-body #posts #users-posts {
+      display: flex;
+      flex-direction: column; }
+      #main-body #posts #users-posts .each-post {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid grey;
+        margin-bottom: 20px; }
+        #main-body #posts #users-posts .each-post .info {
+          display: flex;
+          flex-direction: row; }
+          #main-body #posts #users-posts .each-post .info i {
+            font-size: 35px;
+            color: grey;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-right: 20px; }
+          #main-body #posts #users-posts .each-post .info .post-info #posted-by {
+            font-family: serif;
+            font-size: 20px;
+            margin-right: 20px;
+            color: skyblue; }
+          #main-body #posts #users-posts .each-post .info .post-info #posted-at {
+            font-family: monospace;
+            color: grey;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; }
+        #main-body #posts #users-posts .each-post .content {
+          font-size: 20px; }
 
 footer {
   width: 100%;
