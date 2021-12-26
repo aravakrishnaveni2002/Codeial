@@ -49,6 +49,7 @@ header{
 
         #heading{
             font-size: 30px;
+            margin-bottom: 20px;
             // border: 2px solid black;
             // color: chocolate;
         }
@@ -62,11 +63,10 @@ header{
 
             #post-content{
                 width: 70%;
-                margin-top: 20px;
                 margin-bottom: 20px;
             }
 
-            button{
+            #post-btn{
                 width: 100px;
                 height: 40px;
                 font-size: 18px;
@@ -128,8 +128,39 @@ header{
 
                 .content{
                     font-size: 20px;
+                    // border: 2px solid black;
                     
                 }
+
+                #comm-heading{
+                    font-size: 20px;
+                    color: grey;
+                }
+
+                #comment-form{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    // border: 2px solid black;
+
+                    #comment-content{
+                        margin-right: 20px;
+                    }
+
+                    #comment-btn{
+                        font-size: 15px;
+                        background-color: lightcyan;
+                        width: 80px;
+                        height: 30px;
+                        border: none;
+                        color: grey;
+                        border-radius: 2rem;
+                        // border: 2px solid black;
+                    }                    
+                    
+                }
+
+
             }
 
         }

@@ -30,15 +30,15 @@ header {
     height: 85%;
     overflow: scroll; }
     #main-body #posts #heading {
-      font-size: 30px; }
+      font-size: 30px;
+      margin-bottom: 20px; }
     #main-body #posts #post-form {
       display: flex;
       flex-direction: column; }
       #main-body #posts #post-form #post-content {
         width: 70%;
-        margin-top: 20px;
         margin-bottom: 20px; }
-      #main-body #posts #post-form button {
+      #main-body #posts #post-form #post-btn {
         width: 100px;
         height: 40px;
         font-size: 18px;
@@ -75,6 +75,23 @@ header {
             justify-content: center; }
         #main-body #posts #users-posts .each-post .content {
           font-size: 20px; }
+        #main-body #posts #users-posts .each-post #comm-heading {
+          font-size: 20px;
+          color: grey; }
+        #main-body #posts #users-posts .each-post #comment-form {
+          display: flex;
+          flex-direction: row;
+          align-items: center; }
+          #main-body #posts #users-posts .each-post #comment-form #comment-content {
+            margin-right: 20px; }
+          #main-body #posts #users-posts .each-post #comment-form #comment-btn {
+            font-size: 15px;
+            background-color: lightcyan;
+            width: 80px;
+            height: 30px;
+            border: none;
+            color: grey;
+            border-radius: 2rem; }
 
 footer {
   width: 100%;
