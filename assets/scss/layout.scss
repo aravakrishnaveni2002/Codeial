@@ -80,12 +80,15 @@ header{
             // border: 2px solid blue;
             display: flex;
             flex-direction: column;
+            height: auto;
 
             .each-post{
                 display: flex;
                 flex-direction: column;
                 border: 1px solid grey;
                 margin-bottom: 20px;
+                height: 20%;
+                overflow: scroll;
 
                 .info{
                     display: flex;
@@ -135,31 +138,88 @@ header{
                 #comm-heading{
                     font-size: 20px;
                     color: grey;
+                    margin-bottom: 10px;
                 }
 
-                #comment-form{
+                #comments{
+
                     display: flex;
-                    flex-direction: row;
-                    align-items: center;
+                    flex-direction: column;
+                    // justify-content: space-evenly;
+                    height: auto;
+                    overflow: scroll;
                     // border: 2px solid black;
 
-                    #comment-content{
-                        margin-right: 20px;
+                    #comment-form{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        // border: 2px solid black;
+
+                        #comment-content{
+                            margin-right: 20px;
+                        }
+
+                        #comment-btn{
+                            font-size: 15px;
+                            background-color: lightcyan;
+                            width: 80px;
+                            height: 30px;
+                            border: none;
+                            color: grey;
+                            border-radius: 2rem;
+                            // border: 2px solid black;
+                        }                    
+                        
                     }
 
-                    #comment-btn{
-                        font-size: 15px;
-                        background-color: lightcyan;
-                        width: 80px;
-                        height: 30px;
-                        border: none;
-                        color: grey;
-                        border-radius: 2rem;
-                        // border: 2px solid black;
-                    }                    
-                    
-                }
+                    #post-comments{
+                        display: flex;
+                        flex-direction: column;
 
+                        #each-comment{
+                            display: flex;
+                            flex-direction: column;
+                            margin-bottom: 20px;
+                            border: 1px solid grey;
+                            border-radius: 1rem;
+                            width: 20%;
+                            // margin-left: 10px;
+
+                            #info{
+                                display: flex;
+                                flex-direction: row;
+                                margin-left: 10px;
+
+                                i{
+                                    font-size: 20px;
+                                    margin-right: 10px;
+                                }
+
+                                #comment-info{
+                                    display: flex;
+                                    flex-direction: column;
+
+                                    #commented-by{
+                                        font-size: 15px;
+                                        color: grey;
+                                    }
+
+                                    #commented-at{
+                                        font-size: 10px;
+                                        color: grey;
+                                        font-family: monospace;
+                                    }
+                                }
+                            }
+
+                            #content{
+                                margin-left: 10px;
+                            }
+                        }
+
+                    }
+                }
 
             }
 

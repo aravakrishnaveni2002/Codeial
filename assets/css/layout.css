@@ -46,12 +46,15 @@ header {
         border: none; }
     #main-body #posts #users-posts {
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      height: auto; }
       #main-body #posts #users-posts .each-post {
         display: flex;
         flex-direction: column;
         border: 1px solid grey;
-        margin-bottom: 20px; }
+        margin-bottom: 20px;
+        height: 20%;
+        overflow: scroll; }
         #main-body #posts #users-posts .each-post .info {
           display: flex;
           flex-direction: row; }
@@ -77,21 +80,56 @@ header {
           font-size: 20px; }
         #main-body #posts #users-posts .each-post #comm-heading {
           font-size: 20px;
-          color: grey; }
-        #main-body #posts #users-posts .each-post #comment-form {
+          color: grey;
+          margin-bottom: 10px; }
+        #main-body #posts #users-posts .each-post #comments {
           display: flex;
-          flex-direction: row;
-          align-items: center; }
-          #main-body #posts #users-posts .each-post #comment-form #comment-content {
-            margin-right: 20px; }
-          #main-body #posts #users-posts .each-post #comment-form #comment-btn {
-            font-size: 15px;
-            background-color: lightcyan;
-            width: 80px;
-            height: 30px;
-            border: none;
-            color: grey;
-            border-radius: 2rem; }
+          flex-direction: column;
+          height: auto;
+          overflow: scroll; }
+          #main-body #posts #users-posts .each-post #comments #comment-form {
+            display: flex;
+            flex-direction: row;
+            align-items: center; }
+            #main-body #posts #users-posts .each-post #comments #comment-form #comment-content {
+              margin-right: 20px; }
+            #main-body #posts #users-posts .each-post #comments #comment-form #comment-btn {
+              font-size: 15px;
+              background-color: lightcyan;
+              width: 80px;
+              height: 30px;
+              border: none;
+              color: grey;
+              border-radius: 2rem; }
+          #main-body #posts #users-posts .each-post #comments #post-comments {
+            display: flex;
+            flex-direction: column; }
+            #main-body #posts #users-posts .each-post #comments #post-comments #each-comment {
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 20px;
+              border: 1px solid grey;
+              border-radius: 1rem;
+              width: 20%; }
+              #main-body #posts #users-posts .each-post #comments #post-comments #each-comment #info {
+                display: flex;
+                flex-direction: row;
+                margin-left: 10px; }
+                #main-body #posts #users-posts .each-post #comments #post-comments #each-comment #info i {
+                  font-size: 20px;
+                  margin-right: 10px; }
+                #main-body #posts #users-posts .each-post #comments #post-comments #each-comment #info #comment-info {
+                  display: flex;
+                  flex-direction: column; }
+                  #main-body #posts #users-posts .each-post #comments #post-comments #each-comment #info #comment-info #commented-by {
+                    font-size: 15px;
+                    color: grey; }
+                  #main-body #posts #users-posts .each-post #comments #post-comments #each-comment #info #comment-info #commented-at {
+                    font-size: 10px;
+                    color: grey;
+                    font-family: monospace; }
+              #main-body #posts #users-posts .each-post #comments #post-comments #each-comment #content {
+                margin-left: 10px; }
 
 footer {
   width: 100%;

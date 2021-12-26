@@ -17,7 +17,15 @@ module.exports.home = function(request,response){
     // });
 
     //populating the user of each post as we also refernced the user
-    Post.find({}).populate('user').exec(function(err,post){
+    Post.find({})
+    .populate('user')
+    .populate({
+        path: 'comments',
+        populate: {
+            path: 'user'
+        }
+    })
+    .exec(function(err,post){
         if(err){
             console.log("Error in finding the post");
             return;

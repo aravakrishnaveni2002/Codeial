@@ -52,7 +52,7 @@ module.exports.create = function(request,response){
                     return;
                 }
 
-                return response.redirect('/user/sign-in');
+                return response.redirect('/users/sign-in');
             });
         }
 
