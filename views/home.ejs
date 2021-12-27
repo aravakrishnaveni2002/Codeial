@@ -17,7 +17,7 @@
 
         <div id="users-posts">
 
-            <% for(let i=0 ;i<posts.length;i++) {%>
+            <% for(post of posts) {%>
 
                 <div class="each-post">
 
@@ -26,14 +26,20 @@
                         <i class="fas fa-user"></i>
                         
                         <div class="post-info">
-                            <span id="posted-by"> <%= posts[i].user.name%></span>
-                            <span id="posted-at">Posted on <%= posts[i].createdAt.toString().substring(0,15) %></span>
+                            <span id="posted-by"> <%= post.user.name%></span>
+                            <span id="posted-at">Posted on <%= post.createdAt.toString().substring(0,15) %></span>
                         </div>
+
+                        <% if(locals.user && post.user.id == locals.user.id) { %>
+
+                            <a href="/posts/delete/<%= post.id%>" id="delete-post">delete-post</a>
+
+                        <% } %>
 
                     </div>
 
                     <div class="content">
-                        <p><%= posts[i].content %></p>
+                        <p><%= post.content %></p>
                     </div>
 
                     <span id="comm-heading">comments</span>
@@ -43,7 +49,7 @@
                         <% if(locals.user) {%>
                             <form action="/comments/create" method="POST" id="comment-form">
                                 <textarea name="content" id="comment-content" cols="30" rows="2" placeholder="Type Here..."></textarea>
-                                <input type="hidden" name="post_id" value="<%= posts[i]._id%>">
+                                <input type="hidden" name="post_id" value="<%= post.id%>">
                                 <button id="comment-btn">
                                     comment
                                 </button>
@@ -52,19 +58,25 @@
 
                         <div id="post-comments">
 
-                            <% for(let j=0;j<posts[i].comments.length;j++) {%>
+                            <% for(comment of post.comments) {%>
 
                                 <div id="each-comment">
                                     <div id="info">
                                         <i class="fas fa-user"></i>
                                 
                                         <div id="comment-info">
-                                            <span id="commented-by"><%= posts[i].comments[j].user.name%></span>
-                                            <span id="commented-at">On <%= posts[i].comments[j].createdAt.toString().substring(0,15)%></span>
+                                            <span id="commented-by"><%= comment.user.name%></span>
+                                            <span id="commented-at">On <%= comment.createdAt.toString().substring(0,15)%></span>
                                         </div>
+
+                                        <% if(locals.user && locals.user.id == comment.user.id){ %>    
+                                            <a href="/comments/delete/<%= comment.id%>" id="delete-comment">delete</a>
+                                        <% } %>
+                                        
+
                                     </div>
                                     <div id="content">
-                                        <%= posts[i].comments[j].content %>
+                                        <%= comment.content %>
                                     </div>
                                 </div>
                             <% } %>    

@@ -24,7 +24,25 @@ module.exports.home = function(request,response){
         populate: {
             path: 'user'
         }
+        
     })
+    // .populate({
+    //     path: 'comments',
+    //     populate: {
+    //         path: 'post',
+            
+    //     }
+    // })
+    // .populate({
+    //     path: 'comments',
+    //     populate: {
+    //         path: 'post',
+    //         populate: {
+    //             path: 'user',
+    //         }
+    //     }
+        
+    // })
     .exec(function(err,post){
         if(err){
             console.log("Error in finding the post");

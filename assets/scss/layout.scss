@@ -87,12 +87,13 @@ header{
                 flex-direction: column;
                 border: 1px solid grey;
                 margin-bottom: 20px;
-                height: 20%;
+                height: 200px;
                 overflow: scroll;
 
                 .info{
                     display: flex;
                     flex-direction: row;
+                    align-items: center;
                     // border: 2px solid black;
 
                     i{
@@ -106,6 +107,8 @@ header{
                     }
 
                     .post-info{
+
+                        margin-right: 20px;
 
                         #posted-by{
                             font-family: serif;
@@ -125,7 +128,12 @@ header{
                         }
                     }
 
-
+                    #delete-post{
+                        text-decoration: none;
+                        font-size: 15px;
+                        color: red;
+                        
+                    }
 
                 }
 
@@ -180,20 +188,22 @@ header{
                         #each-comment{
                             display: flex;
                             flex-direction: column;
+                            // justify-content: space-evenly;
                             margin-bottom: 20px;
                             border: 1px solid grey;
                             border-radius: 1rem;
-                            width: 20%;
+                            width: 250px;
                             // margin-left: 10px;
 
                             #info{
                                 display: flex;
                                 flex-direction: row;
+                                justify-content: space-around;
                                 margin-left: 10px;
 
                                 i{
                                     font-size: 20px;
-                                    margin-right: 10px;
+                                    // margin-right: 10px;
                                 }
 
                                 #comment-info{
@@ -203,6 +213,7 @@ header{
                                     #commented-by{
                                         font-size: 15px;
                                         color: grey;
+        
                                     }
 
                                     #commented-at{
@@ -210,6 +221,12 @@ header{
                                         color: grey;
                                         font-family: monospace;
                                     }
+                                }
+
+                                #delete-comment{
+                                    text-decoration: none;
+                                    font-size: 15px;
+                                    color: salmon;
                                 }
                             }
 

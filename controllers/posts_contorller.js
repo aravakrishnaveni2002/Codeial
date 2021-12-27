@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+const Comment = require('../models/comment');
 
 module.exports.create = function(request,response){
 
@@ -18,4 +19,31 @@ module.exports.create = function(request,response){
         return response.redirect('back');
     });
     
+}
+
+module.exports.delete = function(request,response){
+
+    Post.findById(request.params.id,function(err,post){
+        if(err){
+            console.log("Error in finding the post");
+            return;
+        }
+
+        if(request.user.id == post.user){
+            post.remove();
+
+            Comment.deleteMany({post: request.params.id},function(err){
+                if(err){
+                    console.log("Error in deleting the comments");
+                    return;
+                }
+
+                return response.redirect('back');
+            });
+        }
+
+        else{
+            return response.redirect('back');
+        }
+    });
 }

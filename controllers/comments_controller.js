@@ -31,9 +31,31 @@ module.exports.create = function(request,response){
         }
     });
 
+}
 
-    
+module.exports.delete = function(request,response){
 
-    
+    Comment.findById(request.params.id,function(err,comment){
+        if(err){
+            console.log("Error in finding the comment");
+            return;
+        }
 
+        if(comment.user == request.user.id){
+            
+            let commentPost = comment.post;
+            comment.remove();
+
+            Post.findByIdAndUpdate(commentPost,{ $pull: {comments: request.params.id}},function(err,post){
+                return response.redirect('back');
+            });
+        }
+
+        
+
+        else{
+            return response.redirect('back');
+        }
+
+    });
 }
