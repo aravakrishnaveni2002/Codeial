@@ -2,7 +2,29 @@
     <link rel="stylesheet" href="/css/layout.css">
 
     <h1 id="title">Codial | <%= title %></h1>
+
+    <div id="container">
         
-    <%- include('_posts') -%>
+        <%- include('_posts') -%>
+
+        <% if(locals.user) { %>
+            <section id="friends">
+
+            <div id="heading">Friends</div>
+
+            <% for(u of all_users) { %>
+            
+                <a href="/users/profile/<%= u.id%>" id="each-user"><%= u.name%></a>
+            <% } %>
+
+            </section>
+        <% } %> 
+            
+                
+
+               
+            
+        
+    </div>
 
     <script src="https://kit.fontawesome.com/071baab2d8.js" crossorigin="anonymous"></script>

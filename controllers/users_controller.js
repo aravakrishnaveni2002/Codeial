@@ -11,9 +11,40 @@ module.exports.profile = function(request,response){
 
     //changing a cookie
     // response.cookie('user_id',24);
-    return response.render('profile',{
-        title: 'User'
-    })
+
+    User.findById(request.params.id,function(err,user){
+        if(err){
+            console.log("Error in finding the user");
+            return;
+        }
+
+        return response.render('profile',{
+            title: 'User',
+            profile_user: user
+        })
+    });
+
+    
+}
+
+module.exports.update = function(request,response){
+
+    if(request.user.id == request.params.id){
+
+        User.findByIdAndUpdate(request.params.id,{name: request.body.name,email: request.body.email},function(err,user){
+            if(err){
+                console.log("Error in finding the user");
+                return;
+            }
+
+            return response.redirect('back');
+        });
+    }
+
+    else{
+
+        return response.status(404).send("Unauthorised");
+    }
 }
 
 module.exports.signup = function(request,response){

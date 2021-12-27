@@ -7,11 +7,31 @@
 
             <div id="info">
 
-                <h3>User Name : <%= user.name %></h3>
+                <h3>User Name : <%= profile_user.name %></h3>
 
-                <h3>Email : <%= user.email %></h3>
+                <h3>Email : <%= profile_user.email %></h3>
 
             </div>
+
+            <% if(locals.user.id == profile_user.id) {%>
+
+                <form action="/users/update/<%= profile_user.id%>" id="update-form" method="POST">
+                    <div>
+                        <span class="label">Name</span>
+                        <input type="text" id="name" name="name" required value=<%= profile_user.name%>>
+                    </div>
+
+                    <div>
+                        <span class="label">Email</span>
+                        <input type="email" id="email" name="email" required value=<%= profile_user.email%>>
+                    </div>
+
+                    <div>
+                        <button id="update-btn">Update</button>
+                    </div>
+                </form>
+
+            <% } %>
 
         <!-- </main> -->
 

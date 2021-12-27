@@ -7,7 +7,7 @@
 
     <div id="nav-header">
         <% if (locals.user) { %>
-            <a class="links-header" href="/users/profile">
+            <a class="links-header" href="/users/profile/<%= user.id%>">
                 <%= user.name %>
             </a>
 
