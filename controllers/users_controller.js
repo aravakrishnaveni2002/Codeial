@@ -2,9 +2,7 @@
 const User = require('../models/user');
 
 
-module.exports.profile = function(request,response){
-
-    // return response.send('<h1>User Profile</h1>');
+module.exports.profile = async function(request,response){
 
     //getting a cookie
     // console.log(request.cookies);
@@ -12,19 +10,31 @@ module.exports.profile = function(request,response){
     //changing a cookie
     // response.cookie('user_id',24);
 
-    User.findById(request.params.id,function(err,user){
-        if(err){
-            console.log("Error in finding the user");
-            return;
-        }
+    // User.findById(request.params.id,function(err,user){
+    //     if(err){
+    //         console.log("Error in finding the user");
+    //         return;
+    //     }
+
+    //     return response.render('profile',{
+    //         title: 'User',
+    //         profile_user: user
+    //     })
+    // });
+
+
+    try{
+        let user = await User.findById(request.params.id);
 
         return response.render('profile',{
             title: 'User',
             profile_user: user
-        })
-    });
+        });
 
-    
+    }catch(err){
+        console.log("Error",err);
+        return;
+    }
 }
 
 module.exports.update = function(request,response){
@@ -64,33 +74,52 @@ module.exports.signout = function(request,response){
     return response.redirect('/');
 }
 
-module.exports.create = function(request,response){
+module.exports.create = async function(request,response){
 
     if(request.body.password != request.body.confrim_password){
         return response.redirect('back');
     }
 
-    User.findOne({email: request.body.email},function(err,user){
-        if(err){
-            console.log("Error in finding the user sigging up");
-            return;
-        }
+    // User.findOne({email: request.body.email},function(err,user){
+    //     if(err){
+    //         console.log("Error in finding the user sigging up");
+    //         return;
+    //     }
+
+    //     if(!user){
+    //         User.create(request.body,function(err,user){
+    //             if(err){
+    //                 console.log("Error in creating the user sigging up");
+    //                 return;
+    //             }
+
+    //             return response.redirect('/users/sign-in');
+    //         });
+    //     }
+
+    //     else{
+    //         return response.redirect('back');
+    //     }
+    // });
+
+    try{
+        let user = await User.findOne({email: request.body.email});
 
         if(!user){
-            User.create(request.body,function(err,user){
-                if(err){
-                    console.log("Error in creating the user sigging up");
-                    return;
-                }
+            await User.create(request.body);
 
-                return response.redirect('/users/sign-in');
-            });
+            return response.redirect('/users/sign-in');
+            
         }
 
         else{
             return response.redirect('back');
         }
-    });
+
+    }catch(err){
+        console.log("Error", err);
+        return;
+    }
 
 }
 

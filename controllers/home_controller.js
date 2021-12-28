@@ -1,73 +1,68 @@
 const Post = require('../models/post');
 const User = require('../models/user');
 
-module.exports.home = function(request,response){
+module.exports.home = async function(request,response){
 
-    // Post.find({},function(err,post){
+    //populating the user of each post as we also refernced the user
+    // Post.find({})
+    // .populate('user')
+    // .populate({
+    //     path: 'comments',
+    //     populate: {
+    //         path: 'user'
+    //     }
+        
+    // })
+    // .exec(function(err,post){
+
     //     if(err){
     //         console.log("Error in finding the post");
     //         return;
     //     }
 
-    //     return response.render('home',{
-    //         title: 'Home',
-    //         posts: post
-    //     });
 
+    //     User.find({},function(err,user){
+    //         if(err){
+    //             console.log("Error in finding the user");
+    //             return;
+    //         }
+
+    //         return response.render('home',{
+    //             title: 'Home',
+    //             posts: post,
+    //             all_users: user
+    //         });
+
+    //     });
+        
         
     // });
 
-    //populating the user of each post as we also refernced the user
-    Post.find({})
-    .populate('user')
-    .populate({
-        path: 'comments',
-        populate: {
-            path: 'user'
-        }
-        
-    })
-    // .populate({
-    //     path: 'comments',
-    //     populate: {
-    //         path: 'post',
-            
-    //     }
-    // })
-    // .populate({
-    //     path: 'comments',
-    //     populate: {
-    //         path: 'post',
-    //         populate: {
-    //             path: 'user',
-    //         }
-    //     }
-        
-    // })
-    .exec(function(err,post){
-
-        if(err){
-            console.log("Error in finding the post");
-            return;
-        }
-
-
-        User.find({},function(err,user){
-            if(err){
-                console.log("Error in finding the user");
-                return;
+    //making code simple by using asyc await
+    try{
+        let posts = await Post.find({})
+        .populate('user')
+        .populate({
+            path: 'comments',
+            populate: {
+                path: 'user'
             }
+        })
 
-            return response.render('home',{
-                title: 'Home',
-                posts: post,
-                all_users: user
-            });
+        let users = await User.find({});
 
+        return response.render('home',{
+            title: "Home",
+            posts: posts,
+            all_users: users
         });
-        
-        
-    });
+
+    }catch(err){
+        console.log("Error",err);
+        return;
+    }
+
+    
 
     
 }
