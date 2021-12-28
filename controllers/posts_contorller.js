@@ -12,10 +12,11 @@ module.exports.create = function(request,response){
 
     },function(err,post){
         if(err){
-            console.log("Error in creating the post");
-            return;
+            request.flash('error',err);
+            return response.redirect('back');
         }
 
+        request.flash('success','Post Published');
         return response.redirect('back');
     });
     
@@ -55,15 +56,19 @@ module.exports.delete = async function(request,response){
 
             await Comment.deleteMany({post: request.params.id});
 
+            request.flash('success','Post and its related comments deleted');
+
             return response.redirect('back');
         }
 
         else{
+            request.flash('error','You can not delete this post');
             return response.redirect('back');
         }
 
     }catch(err){
-        console.log("Error",err);
+        request.flash('error',err);
+        return response.redirect('back');
     }
 
     

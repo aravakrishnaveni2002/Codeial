@@ -45,17 +45,19 @@ module.exports.create = async function(request,response){
 
             post.comments.push(comment);
             post.save();
-
+ 
+            request.flash('success','Comment added');
             return response.redirect('back');
         }
 
         else{
+            request.flash('error','This post does not exits');
             return response.redirect('back');
         }
 
     }catch(err){
-        console.log("Error",err);
-        return;
+        request.flash('error',err);
+        return response.redirect('back');
     }
 
 }
@@ -96,17 +98,19 @@ module.exports.delete = async function(request,response){
             comment.remove();
 
             await Post.findByIdAndUpdate(commentPost,{ $pull: {comments: request.params.id}});
-                
+
+            request.flash('success','Comment deleted');
             return response.redirect('back');
             
         }
 
         else{
+            request.flash('error','You can not delete this comment');
             return response.redirect('back');
         }
 
     }catch(err){
-        console.log("Error",err);
-        return;
+        request.flash('error',err);
+        return response.redirect('back');
     }
 }
