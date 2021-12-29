@@ -1,24 +1,63 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
 
-module.exports.create = function(request,response){
+module.exports.create = async function(request,response){
 
     // console.log(request.body);
     // console.log(request.user);
 
-    Post.create({
-        content: request.body.content,
-        user: request.user._id
+    try{
 
-    },function(err,post){
-        if(err){
-            request.flash('error',err);
-            return response.redirect('back');
+        let post = await Post.create({
+            content: request.body.content,
+            user: request.user._id
+        });
+
+
+        if(request.xhr){
+
+            post = await post.populate('user','name');
+
+            return response.status(200).json({
+                data: {
+                    post: post
+                },
+                message: "Post created"
+            });
         }
 
         request.flash('success','Post Published');
         return response.redirect('back');
-    });
+
+    }catch(err){
+        request.flash('error',err);
+        return response.redirect('back');
+    }
+
+    // Post.create({
+    //     content: request.body.content,
+    //     user: request.user._id
+    // },function(err,post){
+    //     if(err){
+    //         console.log(err);
+    //         return;
+    //     }
+
+    //     if(request.xhr){
+
+    //         // post.populate('user','name').exec(function(err,post){
+    //             return response.status(200).json({
+    //                 data: {
+    //                     post: post
+    //                 },
+    //                 message: "Post created"
+    //             });
+    //         // });
+            
+    //     }
+
+    //     return response.redirect('back');
+    // });
     
 }
 
@@ -55,6 +94,16 @@ module.exports.delete = async function(request,response){
             post.remove();
 
             await Comment.deleteMany({post: request.params.id});
+
+            if(request.xhr){
+
+                return response.status(200).json({
+                    data:{
+                        post_id: request.params.id
+                    },
+                    message: "Post deleted"
+                });
+            }
 
             request.flash('success','Post and its related comments deleted');
 

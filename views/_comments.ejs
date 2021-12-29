@@ -1,39 +1,19 @@
-<section id="comments">
-    
-    <% if(locals.user) {%>
-        <form action="/comments/create" method="POST" id="comment-form">
-            <textarea name="content" id="comment-content" cols="30" rows="2" placeholder="Type Here..."></textarea>
-            <input type="hidden" name="post_id" value="<%= post.id%>">
-            <button id="comment-btn">
-                comment
-            </button>
-        </form>
-    <% } %>
+<div id="each-comment-<%=comment.id%>" class="each-comment">
+    <div id="info">
+        <i class="fas fa-user"></i>
 
-    <div id="post-comments">
+        <div id="comment-info">
+            <span id="commented-by"><%= comment.user.name%></span>
+            <span id="commented-at">On <%= comment.createdAt.toString().substring(0,15)%></span>
+        </div>
 
-        <% for(comment of post.comments) {%>
-
-            <div id="each-comment">
-                <div id="info">
-                    <i class="fas fa-user"></i>
-            
-                    <div id="comment-info">
-                        <span id="commented-by"><%= comment.user.name%></span>
-                        <span id="commented-at">On <%= comment.createdAt.toString().substring(0,15)%></span>
-                    </div>
-
-                    <% if(locals.user && locals.user.id == comment.user.id){ %>    
-                        <a href="/comments/delete/<%= comment.id%>" id="delete-comment">delete</a>
-                    <% } %>
-                    
-
-                </div>
-                <div id="content">
-                    <%= comment.content %>
-                </div>
-            </div>
-        <% } %>    
+        <% if(locals.user && locals.user.id == comment.user.id){ %>    
+            <a href="/comments/delete/<%= comment.id%>" id="delete-comment">delete</a>
+        <% } %>
+        
 
     </div>
-</section>
+    <div id="content">
+        <%= comment.content %>
+    </div>
+</div>

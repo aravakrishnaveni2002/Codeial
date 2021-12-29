@@ -133,7 +133,7 @@ module.exports.create = async function(request,response){
 
 module.exports.createSession = function(request,response){
 
-    request.flash('success','Looged in Sucessfully');
+    request.flash('success','Logged in Sucessfully');
     
     return  response.redirect('/');
 

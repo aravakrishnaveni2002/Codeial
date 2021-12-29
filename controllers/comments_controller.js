@@ -45,6 +45,18 @@ module.exports.create = async function(request,response){
 
             post.comments.push(comment);
             post.save();
+
+            if(request.xhr){
+
+                comment = await comment.populate('user','name');
+
+                return response.status(200).json({
+                    data: {
+                        comment: comment
+                    },
+                    message: "Comment created"
+                });
+            }
  
             request.flash('success','Comment added');
             return response.redirect('back');
@@ -98,6 +110,15 @@ module.exports.delete = async function(request,response){
             comment.remove();
 
             await Post.findByIdAndUpdate(commentPost,{ $pull: {comments: request.params.id}});
+
+            if(request.xhr){
+
+                return response.status(200).json({
+                    data: {
+                        comment_id: request.params.id
+                    }
+                });
+            }
 
             request.flash('success','Comment deleted');
             return response.redirect('back');

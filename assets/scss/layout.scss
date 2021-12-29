@@ -93,13 +93,14 @@ header{
 
                 .each-post{
                     display: flex;
+                    border: 2px solid black;
                     flex-direction: column;
                     border: 1px solid grey;
                     margin-bottom: 20px;
                     height: 200px;
                     
 
-                    .info{
+                    #info{
                         display: flex;
                         flex-direction: row;
                         align-items: center;
@@ -115,7 +116,7 @@ header{
                             // border: 2px solid black;
                         }
 
-                        .post-info{
+                        #post-info{
 
                             margin-right: 20px;
 
@@ -146,7 +147,7 @@ header{
 
                     }
 
-                    .content{
+                    #content{
                         font-size: 20px;
                         // border: 2px solid black;
                         
@@ -167,7 +168,7 @@ header{
                         overflow: scroll;
                         // border: 2px solid black;
 
-                        #comment-form{
+                        .comment-form{
                             display: flex;
                             flex-direction: row;
                             align-items: center;
@@ -190,11 +191,11 @@ header{
                             
                         }
 
-                        #post-comments{
+                        .post-comments{
                             display: flex;
                             flex-direction: column;
 
-                            #each-comment{
+                            .each-comment{
                                 display: flex;
                                 flex-direction: column;
                                 // justify-content: space-evenly;

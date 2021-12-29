@@ -55,39 +55,40 @@ header {
         height: auto; }
         #main-body #container #posts #users-posts .each-post {
           display: flex;
+          border: 2px solid black;
           flex-direction: column;
           border: 1px solid grey;
           margin-bottom: 20px;
           height: 200px; }
-          #main-body #container #posts #users-posts .each-post .info {
+          #main-body #container #posts #users-posts .each-post #info {
             display: flex;
             flex-direction: row;
             align-items: center; }
-            #main-body #container #posts #users-posts .each-post .info i {
+            #main-body #container #posts #users-posts .each-post #info i {
               font-size: 35px;
               color: grey;
               display: flex;
               flex-direction: column;
               justify-content: center;
               margin-right: 20px; }
-            #main-body #container #posts #users-posts .each-post .info .post-info {
+            #main-body #container #posts #users-posts .each-post #info #post-info {
               margin-right: 20px; }
-              #main-body #container #posts #users-posts .each-post .info .post-info #posted-by {
+              #main-body #container #posts #users-posts .each-post #info #post-info #posted-by {
                 font-family: serif;
                 font-size: 20px;
                 margin-right: 20px;
                 color: skyblue; }
-              #main-body #container #posts #users-posts .each-post .info .post-info #posted-at {
+              #main-body #container #posts #users-posts .each-post #info #post-info #posted-at {
                 font-family: monospace;
                 color: grey;
                 display: flex;
                 flex-direction: column;
                 justify-content: center; }
-            #main-body #container #posts #users-posts .each-post .info #delete-post {
+            #main-body #container #posts #users-posts .each-post #info #delete-post {
               text-decoration: none;
               font-size: 15px;
               color: red; }
-          #main-body #container #posts #users-posts .each-post .content {
+          #main-body #container #posts #users-posts .each-post #content {
             font-size: 20px; }
           #main-body #container #posts #users-posts .each-post #comm-heading {
             font-size: 20px;
@@ -98,13 +99,13 @@ header {
             flex-direction: column;
             height: auto;
             overflow: scroll; }
-            #main-body #container #posts #users-posts .each-post #comments #comment-form {
+            #main-body #container #posts #users-posts .each-post #comments .comment-form {
               display: flex;
               flex-direction: row;
               align-items: center; }
-              #main-body #container #posts #users-posts .each-post #comments #comment-form #comment-content {
+              #main-body #container #posts #users-posts .each-post #comments .comment-form #comment-content {
                 margin-right: 20px; }
-              #main-body #container #posts #users-posts .each-post #comments #comment-form #comment-btn {
+              #main-body #container #posts #users-posts .each-post #comments .comment-form #comment-btn {
                 font-size: 15px;
                 background-color: lightcyan;
                 width: 80px;
@@ -112,38 +113,38 @@ header {
                 border: none;
                 color: grey;
                 border-radius: 2rem; }
-            #main-body #container #posts #users-posts .each-post #comments #post-comments {
+            #main-body #container #posts #users-posts .each-post #comments .post-comments {
               display: flex;
               flex-direction: column; }
-              #main-body #container #posts #users-posts .each-post #comments #post-comments #each-comment {
+              #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment {
                 display: flex;
                 flex-direction: column;
                 margin-bottom: 20px;
                 border: 1px solid grey;
                 border-radius: 1rem;
                 width: 250px; }
-                #main-body #container #posts #users-posts .each-post #comments #post-comments #each-comment #info {
+                #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info {
                   display: flex;
                   flex-direction: row;
                   justify-content: space-around;
                   margin-left: 10px; }
-                  #main-body #container #posts #users-posts .each-post #comments #post-comments #each-comment #info i {
+                  #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info i {
                     font-size: 20px; }
-                  #main-body #container #posts #users-posts .each-post #comments #post-comments #each-comment #info #comment-info {
+                  #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info #comment-info {
                     display: flex;
                     flex-direction: column; }
-                    #main-body #container #posts #users-posts .each-post #comments #post-comments #each-comment #info #comment-info #commented-by {
+                    #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info #comment-info #commented-by {
                       font-size: 15px;
                       color: grey; }
-                    #main-body #container #posts #users-posts .each-post #comments #post-comments #each-comment #info #comment-info #commented-at {
+                    #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info #comment-info #commented-at {
                       font-size: 10px;
                       color: grey;
                       font-family: monospace; }
-                  #main-body #container #posts #users-posts .each-post #comments #post-comments #each-comment #info #delete-comment {
+                  #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info #delete-comment {
                     text-decoration: none;
                     font-size: 15px;
                     color: salmon; }
-                #main-body #container #posts #users-posts .each-post #comments #post-comments #each-comment #content {
+                #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #content {
                   margin-left: 10px; }
     #main-body #container #friends {
       border-left: 1px solid gray;
