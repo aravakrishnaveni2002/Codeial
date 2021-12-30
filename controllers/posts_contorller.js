@@ -1,10 +1,7 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
 
-module.exports.create = async function(request,response){
-
-    // console.log(request.body);
-    // console.log(request.user);
+module.exports.create =  async function(request,response){
 
     try{
 
@@ -58,6 +55,7 @@ module.exports.create = async function(request,response){
 
     //     return response.redirect('back');
     // });
+    
     
 }
 

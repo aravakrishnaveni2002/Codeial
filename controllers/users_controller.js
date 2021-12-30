@@ -1,6 +1,7 @@
 
 const User = require('../models/user');
-
+const fs = require('fs');
+const path = require('path');
 
 module.exports.profile = async function(request,response){
 
@@ -37,27 +38,67 @@ module.exports.profile = async function(request,response){
     }
 }
 
-module.exports.update = function(request,response){
+module.exports.update = async function(request,response){
+
+    // if(request.user.id == request.params.id){
+
+    //     User.findByIdAndUpdate(request.params.id,{name: request.body.name,email: request.body.email},function(err,user){
+    //         if(err){
+    //             request.flash('error',err);
+    //             return response.redirect('back');
+    //         }
+
+    //         request.flash('success','Your profile upadted successfully!');
+    //         return response.redirect('back');
+    //     });
+    // }
+
+    // else{
+
+    //     request.flash('error','You cant not update this profile');
+    //     return response.redirect('back');
+    //     // return response.status(404).send("Unauthorised");
+    // }
 
     if(request.user.id == request.params.id){
 
-        User.findByIdAndUpdate(request.params.id,{name: request.body.name,email: request.body.email},function(err,user){
-            if(err){
-                request.flash('error',err);
+        try{
+            let user = await User.findById(request.params.id);
+            User.uploadedAvatar(request,response,function(err){
+                if(err){
+                    console.log("********Multer Error: ",err);
+                }    
+               
+                //console.log(request.file);  
+                user.name = request.body.name;
+                user.email = request.body.email;
+
+                if(request.file){
+                    if(user.avatar && fs.existsSync(path.join(__dirname,'..'+user.avatar))){
+                        fs.unlinkSync(path.join(__dirname,'..'+user.avatar));
+                    }
+                    user.avatar = User.avatarPath + '/' + request.file.filename;
+                }
+
+                user.save();
+                request.flash('success','Your profile upadated successfully!');
                 return response.redirect('back');
-            }
+                
+            });
+            
 
-            request.flash('success','Your profile upadted successfully!');
+        }catch(err){
+            request.flash('error',err);
             return response.redirect('back');
-        });
+        }
+        
     }
-
     else{
-
         request.flash('error','You cant not update this profile');
         return response.redirect('back');
-        // return response.status(404).send("Unauthorised");
     }
+
+    
 }
 
 module.exports.signup = function(request,response){
