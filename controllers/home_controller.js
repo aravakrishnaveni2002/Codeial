@@ -51,7 +51,7 @@ module.exports.home = async function(request,response){
             populate: {
                 path: 'user'
             }
-        })
+        });
 
         let users = await User.find({});
 

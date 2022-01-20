@@ -3,13 +3,12 @@ const Comment = require('../models/comment');
 
 module.exports.create =  async function(request,response){
 
-    try{
+    try{ 
 
         let post = await Post.create({
             content: request.body.content,
             user: request.user._id
         });
-
 
         if(request.xhr){
 

@@ -48,7 +48,8 @@ module.exports.create = async function(request,response){
 
             if(request.xhr){
 
-                comment = await comment.populate('user','name');
+                //only populating user name
+                comment = await comment.populate('user',{name: 1});
 
                 return response.status(200).json({
                     data: {
