@@ -11,11 +11,7 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-stratagy');
 const passportJWT = require('./config/passport-jwt-stratagy');
-<<<<<<< HEAD
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
-=======
-const passportGoogle = require('./config/passport-google-oauth2-startegy');
->>>>>>> cc368930804fe851c8a1bca9d9ee0fc07617db62
 const MongoStore = require('connect-mongo')(session);
 
 const sassMiddleware = require('node-sass-middleware');
