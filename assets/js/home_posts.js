@@ -19,6 +19,9 @@
                     deletePost($(' #delete-post',newPost));
 
                     new postComments(data.data.post._id);
+                    //enabling the functionality of toggle like btn
+                    new ToggleLike($(' .toggle-like-btn', newPost));
+
                     notyNotification('Post Published','success');
                     
                 },error: function(error){
@@ -48,6 +51,14 @@
                 
                     <div id="content">
                         <p>${ post.content }</p>
+                    </div>
+
+                    <div id="likes">
+                        <a class="toggle-like-btn" data-likes="0" href="/likes/toggle/?id=${ post._id}&type=Post">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>0 Likes</span>
+                        </a>
+                        
                     </div>
                 
                     <span id="comm-heading">comments</span>

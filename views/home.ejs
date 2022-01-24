@@ -54,3 +54,11 @@
     <script src="https://kit.fontawesome.com/071baab2d8.js" crossorigin="anonymous"></script>
     <script src="/js/home_posts_comments.js"></script>
     <script src="/js/home_posts.js"></script>
+
+    <script src="js/toggle_likes.js"></script>
+    <script>
+        $(' .toggle-like-btn').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+        });
+    </script>

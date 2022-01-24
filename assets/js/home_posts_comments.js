@@ -34,6 +34,7 @@ class postComments{
                     let newComment = pSelf.newCommentDom(data.data.comment);
                     $(`#post-comments-${postId}`).prepend(newComment);
                     pSelf.deleteComment($(' #delete-comment',newComment));
+                    new ToggleLike($(' .toggle-like-btn', newComment));
                     notyNotification('Comment added','success');
                 },error: function(error){
                     notyNotification(error,'error');
@@ -59,6 +60,15 @@ class postComments{
                     <div id="content">
                         ${ comment.content }
                     </div>
+
+                    <div id="likes">
+                        <a class="toggle-like-btn" data-likes="0" href="/likes/toggle/?id=${ comment._id}&type=Comment">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>0 Likes</span>
+                        </a>
+                        
+                    </div>
+
                 </div>`);
 
     }

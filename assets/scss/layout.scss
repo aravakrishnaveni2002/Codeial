@@ -101,7 +101,7 @@ header{
                     flex-direction: column;
                     border: 1px solid grey;
                     margin-bottom: 20px;
-                    height: 200px;
+                    height: 220px;
                     
 
                     #info{
@@ -319,6 +319,21 @@ header{
         }
     }
 }
+
+
+#likes{
+
+    margin-bottom: 10px;
+    a{
+        text-decoration: none;
+        color: skyblue;
+        margin-left: 10px;
+    }
+    span{
+        color: rosybrown;
+    }
+}
+
 //////////////////////////////
 
 footer{

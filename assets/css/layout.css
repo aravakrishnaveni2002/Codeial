@@ -63,7 +63,7 @@ header {
           flex-direction: column;
           border: 1px solid grey;
           margin-bottom: 20px;
-          height: 200px; }
+          height: 220px; }
           #main-body #container #posts #users-posts .each-post #info {
             display: flex;
             flex-direction: row;
@@ -189,6 +189,15 @@ header {
       background-color: skyblue;
       border: none;
       font-size: 20px; }
+
+#likes {
+  margin-bottom: 10px; }
+  #likes a {
+    text-decoration: none;
+    color: skyblue;
+    margin-left: 10px; }
+  #likes span {
+    color: rosybrown; }
 
 footer {
   width: 100%;
