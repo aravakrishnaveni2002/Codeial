@@ -257,23 +257,31 @@ header{
             }
         }
 
-        #friends{
+        .list{
             border-left: 1px solid gray;
             display: flex;
             flex-direction: column;
+            margin-bottom: 20px;
             
-            #heading{
+            .heading{
                 font-size: 30px;
                 margin-bottom: 20px;
                 margin-left: 10px;
             }
 
-            #each-user{
+            .each-user{
                 text-decoration: none;
                 font-size: 20px;
                 color: skyblue;
                 margin-bottom: 10px;
                 margin-left: 10px;
+            }
+
+            .remove-friendship{
+                text-decoration: none;
+                font-size: 15px;
+                color: rosybrown;
+               
             }
         }
     }    
@@ -332,6 +340,20 @@ header{
     span{
         color: rosybrown;
     }
+}
+
+#friend{
+
+    
+    // border: 2px solid black;
+    margin-left: 50px;
+    a{
+        text-decoration: none;
+        font-size: 30px;
+        color: rosybrown;
+    }
+
+
 }
 
 //////////////////////////////

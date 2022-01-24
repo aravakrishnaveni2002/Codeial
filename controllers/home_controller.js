@@ -1,5 +1,6 @@
 const Post = require('../models/post');
 const User = require('../models/user');
+const Friendship = require('../models/friendship');
 
 module.exports.home = async function(request,response){
 
@@ -49,18 +50,19 @@ module.exports.home = async function(request,response){
                 sort: {'createdAt': -1}
             },
             populate: {
-                path: 'user'
-            }
-        })
-        .populate({
-            path: 'comments',
-            populate: {
-                path: 'likes'
+                path: 'user likes'
             }
         })
         .populate('likes')
 
-        let users = await User.find({});
+        let users = await User.find({})
+        .populate({
+            path: 'friends',
+            populate: {
+                path: 'from_user to_user'
+
+            }
+        });
 
         return response.render('home',{
             title: "Home",

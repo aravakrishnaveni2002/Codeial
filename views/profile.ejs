@@ -15,6 +15,14 @@
 
             </div>
 
+            <div id="friend">
+                <% if(locals.user.id != profile_user._id){ %>
+                    <a href="/friendship/toggle/?id=<%=profile_user._id%>" class="toggle-friend">Add Friend</a>
+                <% } %>
+                
+            </div>
+            
+
             <% if(locals.user.id == profile_user.id) {%>
 
                 <form action="/users/update/<%= profile_user.id%>" id="update-form" method="POST" enctype="multipart/form-data">
@@ -44,3 +52,10 @@
 
     </div>
 
+<script src="/js/toggle_friendship.js"></script>
+<script>
+    $('.toggle-friend').each(function(){
+        let self = this;
+        let toggleFriendship = new ToggleFriendship(self);
+    });
+</script>

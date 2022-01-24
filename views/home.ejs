@@ -32,16 +32,51 @@
         </section>
 
         <% if(locals.user) { %>
-            <section id="friends">
-
-            <div id="heading">Friends</div>
-
-            <% for(u of all_users) { %>
             
-                <a href="/users/profile/<%= u.id%>" id="each-user"><%= u.name%></a>
-            <% } %>
+            <div>
+                <section id="friends" class="list">
 
-            </section>
+                    <div class="heading">Friends</div>
+        
+                    <% for(u of all_users) { %>
+
+                        <% if(u._id == locals.user.id) {%> 
+                            
+                            <% for(friends of u.friends) {%> 
+                                <% if(friends.from_user._id != locals.user.id) {%>
+                                    <div id="each-user-<%= friends.from_user._id%>">
+                                        <a href="/users/profile/<%= friends.from_user._id%>" class="each-user"><%= friends.from_user.name%></a>
+                                        <a href="/friendship/remove/?id=<%= friends.from_user._id%>" class="remove-friendship">X</a>
+                                    </div>
+                                    
+                                <% } else {%>  
+                                    <div id="each-user-<%= friends.to_user._id%>">
+                                        <a href="/users/profile/<%= friends.to_user._id%>" class="each-user"><%= friends.to_user.name%></a>
+                                        <a href="/friendship/remove/?id=<%= friends.to_user._id%>" class="remove-friendship">X</a>
+                                    </div>
+                                <% } %>    
+                                
+                            <%}%>
+                            
+                        <%}%>
+                    
+                        
+                    <% } %>
+        
+                </section>
+        
+                <section id="users" class="list">
+        
+                    <div class="heading">Users</div>
+        
+                    <% for(u of all_users) { %>
+                    
+                        <a href="/users/profile/<%= u.id%>" class="each-user"><%= u.name%></a>
+                    <% } %>
+            
+                </section>
+            </div>
+
         <% } %> 
             
                 
@@ -55,10 +90,20 @@
     <script src="/js/home_posts_comments.js"></script>
     <script src="/js/home_posts.js"></script>
 
-    <script src="js/toggle_likes.js"></script>
+    <script src="/js/toggle_likes.js"></script>
+    <script src="/js/toggle_friendship.js"></script>
+   
     <script>
         $(' .toggle-like-btn').each(function(){
-        let self = this;
-        let toggleLike = new ToggleLike(self);
+            let self = this;
+            let toggleLike = new ToggleLike(self);
         });
     </script>
+
+    <script>
+        $('.remove-friendship').each(function(){
+            let self = this;
+            let friendship = new Friendship(self);
+        });
+    </script>
+    
