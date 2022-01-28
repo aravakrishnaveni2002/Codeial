@@ -56,7 +56,8 @@ header{
 
         display: flex;
         flex-direction: row;
-        
+        // border: 2px solid red;
+        position: relative;
         #posts{
             // border: 2px solid red;
             margin-left: 20px;
@@ -344,7 +345,6 @@ header{
 
 #friend{
 
-    
     // border: 2px solid black;
     margin-left: 50px;
     a{
@@ -353,8 +353,8 @@ header{
         color: rosybrown;
     }
 
-
 }
+
 
 //////////////////////////////
 
