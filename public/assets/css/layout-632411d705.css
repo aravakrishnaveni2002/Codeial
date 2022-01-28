@@ -1,0 +1,237 @@
+body {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%; }
+
+header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: cornflowerblue; }
+  header #logo {
+    font-size: 35px;
+    font-family: sans-serif;
+    color: white; }
+  header #nav-header {
+    display: flex;
+    align-items: center; }
+    header #nav-header .links-header {
+      text-decoration: none;
+      font-size: 22px;
+      color: white;
+      margin-right: 20px;
+      font-family: sans-serif; }
+
+#main-body {
+  min-height: 100%;
+  width: 100%; }
+  #main-body #title {
+    text-align: center; }
+  #main-body #container {
+    display: flex;
+    flex-direction: row;
+    position: relative; }
+    #main-body #container #posts {
+      margin-left: 20px;
+      margin-right: 30px;
+      display: flex;
+      flex-direction: column;
+      width: 70%; }
+      #main-body #container #posts #heading {
+        font-size: 30px;
+        margin-bottom: 20px; }
+      #main-body #container #posts #post-form {
+        display: flex;
+        flex-direction: column; }
+        #main-body #container #posts #post-form #post-content {
+          width: 70%;
+          margin-bottom: 20px; }
+        #main-body #container #posts #post-form #post-btn {
+          width: 100px;
+          height: 40px;
+          font-size: 18px;
+          background-color: skyblue;
+          border: none; }
+      #main-body #container #posts #users-posts {
+        display: flex;
+        flex-direction: column; }
+        #main-body #container #posts #users-posts .each-post {
+          display: flex;
+          flex-direction: column;
+          border: 1px solid grey;
+          margin-bottom: 20px;
+          height: 220px; }
+          #main-body #container #posts #users-posts .each-post #info {
+            display: flex;
+            flex-direction: row;
+            align-items: center; }
+            #main-body #container #posts #users-posts .each-post #info i {
+              font-size: 35px;
+              color: grey;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-right: 20px; }
+            #main-body #container #posts #users-posts .each-post #info #post-info {
+              margin-right: 20px; }
+              #main-body #container #posts #users-posts .each-post #info #post-info #posted-by {
+                font-family: serif;
+                font-size: 20px;
+                margin-right: 20px;
+                color: skyblue; }
+              #main-body #container #posts #users-posts .each-post #info #post-info #posted-at {
+                font-family: monospace;
+                color: grey;
+                display: flex;
+                flex-direction: column;
+                justify-content: center; }
+            #main-body #container #posts #users-posts .each-post #info #delete-post {
+              text-decoration: none;
+              font-size: 15px;
+              color: red; }
+          #main-body #container #posts #users-posts .each-post #content {
+            font-size: 20px; }
+          #main-body #container #posts #users-posts .each-post #comm-heading {
+            font-size: 20px;
+            color: grey;
+            margin-bottom: 10px; }
+          #main-body #container #posts #users-posts .each-post #comments {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            overflow: scroll; }
+            #main-body #container #posts #users-posts .each-post #comments .comment-form {
+              display: flex;
+              flex-direction: row;
+              align-items: center; }
+              #main-body #container #posts #users-posts .each-post #comments .comment-form #comment-content {
+                margin-right: 20px; }
+              #main-body #container #posts #users-posts .each-post #comments .comment-form #comment-btn {
+                font-size: 15px;
+                background-color: lightcyan;
+                width: 80px;
+                height: 30px;
+                border: none;
+                color: grey;
+                border-radius: 2rem; }
+            #main-body #container #posts #users-posts .each-post #comments .post-comments {
+              display: flex;
+              flex-direction: column; }
+              #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 20px;
+                border: 1px solid grey;
+                border-radius: 1rem;
+                width: 250px; }
+                #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info {
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-around;
+                  margin-left: 10px; }
+                  #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info i {
+                    font-size: 20px; }
+                  #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info #comment-info {
+                    display: flex;
+                    flex-direction: column; }
+                    #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info #comment-info #commented-by {
+                      font-size: 15px;
+                      color: grey; }
+                    #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info #comment-info #commented-at {
+                      font-size: 10px;
+                      color: grey;
+                      font-family: monospace; }
+                  #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #info #delete-comment {
+                    text-decoration: none;
+                    font-size: 15px;
+                    color: salmon; }
+                #main-body #container #posts #users-posts .each-post #comments .post-comments .each-comment #content {
+                  margin-left: 10px;
+                  font-size: 18px; }
+    #main-body #container .list {
+      border-left: 1px solid gray;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px; }
+      #main-body #container .list .heading {
+        font-size: 30px;
+        margin-bottom: 20px;
+        margin-left: 10px; }
+      #main-body #container .list .each-user {
+        text-decoration: none;
+        font-size: 20px;
+        color: skyblue;
+        margin-bottom: 10px;
+        margin-left: 10px; }
+      #main-body #container .list .remove-friendship {
+        text-decoration: none;
+        font-size: 15px;
+        color: rosybrown; }
+
+#main-body #update-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px; }
+  #main-body #update-form div {
+    margin-bottom: 20px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; }
+    #main-body #update-form div .label {
+      font-size: 25px; }
+    #main-body #update-form div input {
+      font-size: 15px;
+      width: 250px; }
+    #main-body #update-form div #update-btn {
+      width: 100px;
+      height: 40px;
+      background-color: skyblue;
+      border: none;
+      font-size: 20px; }
+
+#likes {
+  margin-bottom: 10px; }
+  #likes a {
+    text-decoration: none;
+    color: skyblue;
+    margin-left: 10px; }
+  #likes span {
+    color: rosybrown; }
+
+#friend {
+  margin-left: 50px; }
+  #friend a {
+    text-decoration: none;
+    font-size: 30px;
+    color: rosybrown; }
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: gray; }
+  footer div {
+    margin-top: 10px;
+    margin-right: 30px;
+    margin-left: 10px; }
+  footer #about {
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif; }
+  footer #nav-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    footer #nav-footer .links-footer {
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      font-family: sans-serif;
+      margin-bottom: 5px; }

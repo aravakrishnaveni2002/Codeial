@@ -1,5 +1,5 @@
 
-    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="<%= assetPath('css/layout.css')%>">
 
     <h1 id="title">Codial | <%= title %></h1>
 
@@ -88,11 +88,11 @@
     </div>
 
     <script src="https://kit.fontawesome.com/071baab2d8.js" crossorigin="anonymous"></script>
-    <script src="/js/home_posts_comments.js"></script>
-    <script src="/js/home_posts.js"></script>
+    <script src="<%= assetPath('js/home_posts_comments.js')%>"></script>
+    <script src="<%= assetPath('js/home_posts.js')%>"></script>
 
-    <script src="/js/toggle_likes.js"></script>
-    <script src="/js/toggle_friendship.js"></script>
+    <script src="<%= assetPath('js/toggle_likes.js')%>"></script>
+    <script src="<%= assetPath('js/toggle_friendship.js')%>"></script>
    
     <script>
         $(' .toggle-like-btn').each(function(){
@@ -109,7 +109,7 @@
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-    <script src="/js/chat_engine.js"></script>
+    <script src="<%= assetPath('js/chat_engine.js') %>"></script>
     
     <% if (locals.user) {%>
         <script>
